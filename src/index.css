@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
-*{
-    /* padding: 0;
-    margin: 0; */
+* {
     box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
+}
+#root {
+    display: flex;
+    min-height: 100vh;
 }
