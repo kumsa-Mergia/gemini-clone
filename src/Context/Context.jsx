@@ -7,24 +7,31 @@ const ContexProvider = (props) => {
 
     const [input,setInput] = useState("");
     const [recentPrompt,setRecentPrompt] = useState("");
-    const [prePrompts,setPrevPrompts] = useState([]);
-    const [showResults,setResult] = useState(false);
+    const [prevPrompts,setPrevPrompts] = useState([]);
+    const [showResult,setShowResult] = useState(false);
     const [loading,setLoading] = useState(false);
     const [resultData,setResultData] = useState("");
 
 
 
     const onSent = async (prompt) => {
-        await run(input)
+        setResultData("")
+        setLoading(true) 
+        setShowResult(true)
+        setRecentPrompt(input)
+        const response = await run(input)
+        setResultData(response)
+        setLoading(false)
+        setInput("")
     }
 
     const contextValue = {
-        prePrompts,
+        prevPrompts,
         setPrevPrompts,
         onSent,
         setRecentPrompt,
         recentPrompt,
-        showResults,
+        showResult,
         loading,resultData,
         input,
         setInput
