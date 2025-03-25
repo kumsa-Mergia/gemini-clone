@@ -3,8 +3,11 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    tailwindcss(),
+    react()
+  ],
   build: {
-    outDir: 'dist', // Vite's default output directory
+    outDir: 'dist' // Vite's default output directory
   }
-});
+})
