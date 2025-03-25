@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test": "jest",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -16,7 +15,6 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
-    "tailwind-scrollbar-hide": "^2.0.0",
     "tailwindcss": "^4.0.14"
   },
   "devDependencies": {
