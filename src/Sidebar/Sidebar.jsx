@@ -1,14 +1,24 @@
-import React, { useState } from "react";
-import { assets } from "../assets/assets"; // Import the assets object
+import React, { useContext, useState } from "react";
+import { assets } from "../assets/assets";
+import { Context } from "../Context/context";
 
 const Sidebar = () => {
   const [extended, setExtended] = useState(false);
+  const { onSent, prevPrompts, setRecentPrompt, newChat } = useContext(Context);
+
+  const loadPrompt = async (prompt) => {
+    setRecentPrompt(prompt);
+    await onSent(prompt);
+  };
 
   return (
     <div
-      className={`p-4 min-h-screen  ${
+      className={`p-4 min-h-screen bg-[#f0f4f9] flex flex-col justify-between transition-all duration-300 ${
         extended ? "w-64" : "w-16"
-      } bg-[#f0f4f9] flex flex-col justify-between transition-all duration-300`}
+      } ${
+        // Responsive adjustments
+        extended ? "md:w-64" : "md:w-16"
+      }`}
     >
       {/* Top section */}
       <div>
@@ -16,17 +26,29 @@ const Sidebar = () => {
           {assets.menu_icon}
         </button>
 
-        <div className="bg-white p-2 rounded-lg flex items-center gap-2 shadow-md">
+        <div
+          onClick={() => newChat()}
+          className="bg-white p-2 rounded-lg flex items-center gap-2 shadow-md"
+        >
           {assets.plus_icon}
           {extended ? <p className="text-gray-700">New Chat</p> : null}
         </div>
         {extended ? (
           <div className="mt-6">
             <p className="text-gray-600 text-sm">Recent</p>
-            <div className="flex items-center gap-2 cursor-pointer hover:bg-gray-200 p-2 rounded-md mt-2">
-              {assets.message_icon}
-              <p className="text-gray-800">Who is Kumsa ...</p>
-            </div>
+            {prevPrompts.map((item, index) => {
+              return (
+                <div
+                  onClick={() => loadPrompt(item)}
+                  className="flex items-center gap-2 cursor-pointer hover:bg-gray-200 p-2 rounded-md mt-2"
+                >
+                  {assets.message_icon}
+                  <p key={index} className="text-gray-800">
+                    {item.slice(0, 18)} ...
+                  </p>
+                </div>
+              );
+            })}
           </div>
         ) : null}
       </div>
