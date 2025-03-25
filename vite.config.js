@@ -2,12 +2,10 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite'
 
-
-// https://vitejs.dev/config/
 export default defineConfig({
+  base: '/',  // Set to the path where your app will be hosted, if necessary
   plugins: [
     tailwindcss(),
     react()
   ],
-
 });
