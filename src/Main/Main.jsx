@@ -27,7 +27,7 @@ const Main = () => {
 
       {/* Main Content (Center) - Expand to fill available space */}
       <div className="flex-1 flex justify-center">
-        <div className="max-w-[900px] w-full h-full bg-white">
+        <div className="max-w-[1886px] w-full h-full bg-white">
           {!showResult ? (
             <div className="text-center flex flex-col items-center justify-center h-full">
               <p className="text-4xl font-semibold mb-2">
@@ -60,21 +60,18 @@ const Main = () => {
                   className="w-7 h-7 rounded-full"
                   alt="Gemini Icon"
                 />
-                {loading 
-                ?
-              <div className="loader">
-                <hr />
-                <hr />
-                <hr />
-
-              </div>
-              :
-              <p
-              className="text-[17px] font-light leading-[1.8] "
-              dangerouslySetInnerHTML={{ __html: resultData }}
-            ></p>
-                }
-
+                {loading ? (
+                  <div className="loader pt-5">
+                    <hr />
+                    <hr />
+                    <hr />
+                  </div>
+                ) : (
+                  <p
+                    className="text-[17px] font-light leading-[1.8] "
+                    dangerouslySetInnerHTML={{ __html: resultData }}
+                  ></p>
+                )}
               </div>
             </div>
           )}
@@ -82,7 +79,7 @@ const Main = () => {
       </div>
 
       {/* Bottom Section (Footer) - Always at the bottom */}
-      <div className="flex justify-center mt-auto w-full"> {/* Added w-full */}
+      <div className="flex justify-center mt-auto w-full">
         <div className="max-w-[900px] w-full">
           <div className="flex items-center justify-center mt-4">
             <div className="w-full max-w-2xl p-4">
