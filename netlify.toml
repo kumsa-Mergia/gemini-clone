@@ -1,6 +1,10 @@
 [build]
-  command = "npm run build"  # or "yarn build" depending on your package manager
-  publish = "dist"  # Vite's output directory
+  base = "/"
+  command = "npm run build"
+  publish = "dist"
 
 [[plugins]]
   package = "@netlify/plugin-vite"
+
+[context.production.environment]
+  NODE_ENV = "production"
