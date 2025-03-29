@@ -2,7 +2,6 @@
 
 This repository contains the source code for a web application that clones the Gemini interface, leveraging the Gemini API, Tailwind CSS, and React.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-site-id/deploy-status)](https://app.netlify.com/sites/clone-gemini-app/deploys)
 
 ## Live Demo
 
